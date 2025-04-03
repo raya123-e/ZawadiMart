@@ -38,7 +38,12 @@ fun StartScreen(){
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-        Text(text = "ZawadiMart")
+        Text(
+            text = "ZawadiMart",
+            fontSize = 30.sp,
+            color = Igris,
+
+        )
         Spacer(modifier = Modifier.height(20.dp))
 
         //Circular Image
@@ -52,7 +57,7 @@ fun StartScreen(){
         Spacer(modifier = Modifier.height(20.dp))
 
         Text(
-            text = "Find your order!!",
+            text = "Find your date!!",
             fontSize = 30.sp,
             fontWeight = FontWeight.ExtraBold,
             fontFamily = FontFamily.Cursive,
