@@ -1,5 +1,6 @@
 package com.alian.zawadimart.ui.screens.item
 
+import android.content.Intent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -13,6 +14,7 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowForward
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.Notifications
 import androidx.compose.material.icons.filled.Search
@@ -37,15 +39,18 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.core.net.toUri
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.alian.zawadimart.R
+import com.alian.zawadimart.navigation.ROUT_INTENT
 import com.alian.zawadimart.navigation.ROUT_START
 import com.alian.zawadimart.ui.theme.Igris
 import com.alian.zawadimart.ui.theme.white
@@ -57,6 +62,7 @@ fun ItemScreen(navController: NavController){
     Column(
         modifier = Modifier.fillMaxSize()
     ) {
+        val mContext = LocalContext.current
         //TopAppBar
         TopAppBar(
             title ={ Text(text = "Anime Products") },
@@ -82,9 +88,16 @@ fun ItemScreen(navController: NavController){
                     onClick = {}) {
                     Icon(imageVector = Icons.Default.Notifications, contentDescription = "")
                 }
+
+                IconButton(
+                    onClick = {
+                        navController.navigate(ROUT_INTENT)
+                    }) {
+                    Icon(imageVector = Icons.Default.ArrowForward, contentDescription = "")
+                }
             }
         )
-        //end
+        //end TopAppBar
         Image(
             painter = painterResource(R.drawable.anime),
             contentDescription = "anime",
@@ -146,13 +159,15 @@ fun ItemScreen(navController: NavController){
                    }
                    Button(
                        onClick = {
-                           navController.navigate(ROUT_START)
+                           val callIntent= Intent(Intent.ACTION_DIAL)
+                           callIntent.data="tel:0720245837".toUri()
+                           mContext.startActivity(callIntent)
                        },
                        colors = ButtonDefaults.buttonColors(Igris),
                        shape = RoundedCornerShape(10.dp),
                        modifier = Modifier.fillMaxWidth().padding(start = 20.dp, end = 20.dp),
                    ) {
-                       Text(text = "Add to Cart")
+                       Text(text = "Contact us")
                    }
 
                }
@@ -173,7 +188,7 @@ fun ItemScreen(navController: NavController){
 
                Column {
                    Text(
-                       text = "Male Version",
+                       text = "Female Version",
                        fontSize = 20.sp,
                        fontWeight = FontWeight.Bold,
                    )
