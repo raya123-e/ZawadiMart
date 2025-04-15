@@ -12,3 +12,6 @@ val Pink40 = Color(0xFF7D5260)
 val Igris = Color(0xFFE91E1E)
 val white = Color(0xFFFFFFFF)
 val Mlue = Color(0xEE2196F3)
+val orange = Color(0xFFFF9800)
+val whitew = Color(0x75CBC6C6)
+

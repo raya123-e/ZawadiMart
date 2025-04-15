@@ -207,6 +207,7 @@ fun DashboardScreen(navController: NavController){
                 .height(180.dp)
                 .padding(start = 20.dp)
                 .clickable{navController.navigate(ROUT_CONTACT)}
+
             ) {
                 Column(
                     modifier = Modifier.fillMaxSize(),

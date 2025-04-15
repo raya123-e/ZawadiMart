@@ -10,17 +10,20 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.alian.zawadimart.ui.screens.contact.ContactScreen
 import com.alian.zawadimart.ui.screens.dashboard.DashboardScreen
+import com.alian.zawadimart.ui.screens.form.FormScreen
 import com.alian.zawadimart.ui.screens.home.HomeScreen
 import com.alian.zawadimart.ui.screens.intent.IntentScreen
 import com.alian.zawadimart.ui.screens.item.ItemScreen
+import com.alian.zawadimart.ui.screens.personal.PersonalScreen
 import com.alian.zawadimart.ui.screens.service.ServiceScreen
+import com.alian.zawadimart.ui.screens.splash.SplashScreen
 import com.alian.zawadimart.ui.screens.start.StartScreen
 
 @Composable
 fun AppNavHost(
     modifier: Modifier = Modifier,
     navController: NavHostController = rememberNavController(),
-    startDestination: String = ROUT_DASHBOARD
+    startDestination: String = ROUT_SPLASH
 ) {
 
     NavHost(
@@ -56,6 +59,19 @@ fun AppNavHost(
         composable(ROUT_CONTACT) {
             ContactScreen(navController)
         }
+
+        composable(ROUT_SPLASH) {
+            SplashScreen(navController)
+        }
+
+        composable(ROUT_PERSONAL) {
+            PersonalScreen(navController)
+        }
+
+        composable(ROUT_FORM) {
+            FormScreen(navController)
+        }
+
 
 
     }

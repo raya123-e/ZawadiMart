@@ -12,14 +12,19 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.alian.zawadimart.navigation.AppNavHost
+import com.alian.zawadimart.ui.screens.form1.Form1Screen
 import com.alian.zawadimart.ui.theme.ZawadiMartTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        window.setBackgroundDrawableResource(android.R.color.transparent)
+
         enableEdgeToEdge()
         setContent {
+
             AppNavHost()
+
 
         }
     }

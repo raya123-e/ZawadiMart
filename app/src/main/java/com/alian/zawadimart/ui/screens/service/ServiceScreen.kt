@@ -11,7 +11,9 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.ArrowBack
@@ -44,6 +46,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
@@ -132,6 +136,7 @@ fun ServiceScreen(navController: NavController){
                 modifier = Modifier
                     .padding(paddingValues)
                     .fillMaxSize()
+                    .verticalScroll(rememberScrollState())
             ) {
 
 
@@ -156,7 +161,7 @@ fun ServiceScreen(navController: NavController){
                 Spacer(modifier = Modifier.height(20.dp))
 
                 Image(
-                    painter = painterResource(R.drawable.anime3),
+                    painter = painterResource(R.drawable.img_14),
                     contentDescription = "anime",
                     modifier = Modifier.fillMaxWidth().height(200.dp),
                     contentScale = ContentScale.FillWidth
@@ -166,8 +171,13 @@ fun ServiceScreen(navController: NavController){
 
                 Text(
                     text = " Services Available",
-                    fontSize = 20.sp,
+                    fontSize = 30.sp,
                     textAlign = TextAlign.Center,
+                    fontStyle = FontStyle.Italic,
+                    textDecoration = TextDecoration.Underline,
+                    fontFamily = FontFamily.SansSerif,
+
+
 
 
                     )
@@ -175,10 +185,13 @@ fun ServiceScreen(navController: NavController){
 
 
                 //Row
-                Row(modifier = Modifier.padding(start = 20.dp, end = 20.dp)) {
+                Row(modifier = Modifier
+                    .padding(start = 20.dp, end = 20.dp)
+
+                ) {
 
                     Image(
-                        painter = painterResource(R.drawable.anime2),
+                        painter = painterResource(R.drawable.img_18),
                         contentDescription = "",
                         modifier = Modifier.width(200.dp).height(200.dp).clip(shape = RoundedCornerShape(10.dp)),
                         contentScale = ContentScale.FillWidth,
@@ -187,29 +200,20 @@ fun ServiceScreen(navController: NavController){
 
                     Column {
                         Text(
-                            text = "Male Version",
+                            text = "Baddie",
                             fontSize = 20.sp,
                             fontWeight = FontWeight.Bold,
+                            )
+                        Spacer(modifier = Modifier.height(20.dp))
+
+                        Text(
+                            text = "A walking billboard for cool confidence — this hot Korean guy blends effortless style with irresistible charm, making him the perfect face for any bold, trend-setting brand.",
+                            fontSize = 10.sp,
+
                         )
-                        Text(
-                            text = "Ksh.4000",
-                            fontSize = 20.sp,
-                            textDecoration = TextDecoration.LineThrough,
-
-                            )
-                        Text(
-                            text = " NewPrice Ksh.5000",
-                            fontSize = 20.sp,
 
 
-                            )
-                        Row {
-                            Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = Igris)
-                            Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = Igris)
-                            Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = Igris)
-                            Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = Color.Gray)
-                            Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = Color.Gray)
-                        }
+
                         Button(
                             onClick = {
                                 val callIntent= Intent(Intent.ACTION_DIAL)
@@ -220,13 +224,140 @@ fun ServiceScreen(navController: NavController){
                             shape = RoundedCornerShape(10.dp),
                             modifier = Modifier.fillMaxWidth().padding(start = 20.dp, end = 20.dp),
                         ) {
-                            Text(text = "Contact us")
+                            Text(
+                                text = "Call us",
+                                fontSize = 15.sp,
+                            )
                         }
 
                     }
 
                 }
                 //End of Row
+
+                Spacer(modifier = Modifier.height(20.dp))
+
+
+
+                //Row-2
+                Row(modifier = Modifier
+                    .padding(start = 20.dp, end = 20.dp)
+                    .verticalScroll(rememberScrollState())
+                ) {
+
+                    Image(
+                        painter = painterResource(R.drawable.img_19),
+                        contentDescription = "",
+                        modifier = Modifier.width(200.dp).height(200.dp).clip(shape = RoundedCornerShape(10.dp)),
+                        contentScale = ContentScale.FillWidth,
+                    )
+                    Spacer(modifier = Modifier.width(20.dp))
+
+                    Column {
+                        Text(
+                            text = "Nonchalance",
+                            fontSize = 20.sp,
+                            fontWeight = FontWeight.Bold,
+                        )
+                        Spacer(modifier = Modifier.height(20.dp))
+
+                        Text(
+                            text = "Levi commands attention with stoic precision — humanity’s strongest soldier, his sharp gaze and flawless form embody elite strength, discipline, and the ultimate standard in unstoppable cool.\n" +
+                                    "\n",
+                            fontSize = 10.sp,
+
+                            )
+
+
+
+                        Button(
+                            onClick = {
+                                val callIntent= Intent(Intent.ACTION_DIAL)
+                                callIntent.data="tel:0720245837".toUri()
+                                mContext.startActivity(callIntent)
+                            },
+                            colors = ButtonDefaults.buttonColors(Igris),
+                            shape = RoundedCornerShape(10.dp),
+                            modifier = Modifier.fillMaxWidth().padding(start = 20.dp, end = 20.dp),
+                        ) {
+                            Text(
+                                text = "Call us",
+                                fontSize = 15.sp,
+                            )
+                        }
+
+                    }
+
+                }
+                //End of Row-2
+
+
+                //Row-2
+                Row(modifier = Modifier
+                    .padding(start = 20.dp, end = 20.dp)
+
+                ) {
+
+                    Image(
+                        painter = painterResource(R.drawable.img_17),
+                        contentDescription = "",
+                        modifier = Modifier.width(200.dp).height(200.dp).clip(shape = RoundedCornerShape(10.dp)),
+                        contentScale = ContentScale.FillWidth,
+                    )
+                    Spacer(modifier = Modifier.width(20.dp))
+
+                    Column {
+                        Text(
+                            text = "Brooding",
+                            fontSize = 20.sp,
+                            fontWeight = FontWeight.Bold,
+                        )
+                        Spacer(modifier = Modifier.height(20.dp))
+
+                        Text(
+                            text = " Henry Cavill’s Witcher is all grit, intensity, and quiet power, with a stare that cuts deeper than his silver sword.",
+                            fontSize = 10.sp,
+
+                            )
+
+
+
+                        Button(
+                            onClick = {
+                                val callIntent= Intent(Intent.ACTION_DIAL)
+                                callIntent.data="tel:0720245837".toUri()
+                                mContext.startActivity(callIntent)
+                            },
+                            colors = ButtonDefaults.buttonColors(Igris),
+                            shape = RoundedCornerShape(10.dp),
+                            modifier = Modifier.fillMaxWidth().padding(start = 20.dp, end = 20.dp),
+                        ) {
+                            Text(
+                                text = "Call us",
+                                fontSize = 15.sp,
+                            )
+                        }
+
+                    }
+
+                }
+                //End of Row-2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
