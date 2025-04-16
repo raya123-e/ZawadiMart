@@ -43,6 +43,7 @@ import com.alian.zawadimart.navigation.ROUT_CONTACT
 import com.alian.zawadimart.navigation.ROUT_HOME
 import com.alian.zawadimart.navigation.ROUT_INTENT
 import com.alian.zawadimart.navigation.ROUT_ITEM
+import com.alian.zawadimart.navigation.ROUT_SERVICE
 import com.alian.zawadimart.ui.theme.Igris
 import com.alian.zawadimart.ui.theme.Mlue
 import com.alian.zawadimart.ui.theme.white
@@ -167,7 +168,7 @@ fun DashboardScreen(navController: NavController){
                 .width(150.dp)
                 .height(180.dp)
                 .padding(start = 20.dp)
-                .clickable{navController.navigate(ROUT_ABOUT)}
+                .clickable{navController.navigate(ROUT_SERVICE)}
             ) {
                 Column(
                     modifier = Modifier.fillMaxSize(),

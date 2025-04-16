@@ -4,10 +4,15 @@ import AboutScreen
 import android.content.Intent
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.alian.zawadimart.data.UserDatabase
+import com.alian.zawadimart.repository.UserRepository
+import com.alian.zawadimart.ui.screens.auth.LoginScreen
+import com.alian.zawadimart.ui.screens.auth.RegisterScreen
 import com.alian.zawadimart.ui.screens.contact.ContactScreen
 import com.alian.zawadimart.ui.screens.dashboard.DashboardScreen
 import com.alian.zawadimart.ui.screens.form.FormScreen
@@ -18,6 +23,7 @@ import com.alian.zawadimart.ui.screens.personal.PersonalScreen
 import com.alian.zawadimart.ui.screens.service.ServiceScreen
 import com.alian.zawadimart.ui.screens.splash.SplashScreen
 import com.alian.zawadimart.ui.screens.start.StartScreen
+import com.alian.zawadimart.viewmodel.AuthViewModel
 
 @Composable
 fun AppNavHost(
@@ -25,6 +31,9 @@ fun AppNavHost(
     navController: NavHostController = rememberNavController(),
     startDestination: String = ROUT_SPLASH
 ) {
+
+
+    val context = LocalContext.current
 
     NavHost(
         navController = navController,
@@ -71,6 +80,30 @@ fun AppNavHost(
         composable(ROUT_FORM) {
             FormScreen(navController)
         }
+
+        //AUTHENTICATION
+
+        // Initialize Room Database and Repository for Authentication
+        val appDatabase = UserDatabase.getDatabase(context)
+        val authRepository = UserRepository(appDatabase.userDao())
+        val authViewModel: AuthViewModel = AuthViewModel(authRepository)
+        composable(ROUT_REGISTER) {
+            RegisterScreen(authViewModel, navController) {
+                navController.navigate(ROUT_LOGIN) {
+                    popUpTo(ROUT_REGISTER) { inclusive = true }
+                }
+            }
+        }
+
+        composable(ROUT_LOGIN) {
+            LoginScreen(authViewModel, navController) {
+                navController.navigate(ROUT_HOME) {
+                    popUpTo(ROUT_LOGIN) { inclusive = true }
+                }
+            }
+        }
+
+
 
 
 

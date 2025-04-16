@@ -335,7 +335,7 @@ fun PersonalScreen(navController: NavController){
                                 )
                                 Spacer(modifier = Modifier.height(10.dp))
 
-                                Text(text = "Today at 10pm", color = Color.Black)
+                                Text(text = "Today-10pm", color = Color.Black)
 
 
                             }
@@ -372,7 +372,13 @@ fun PersonalScreen(navController: NavController){
                             Spacer(modifier = Modifier.width(20.dp))
 
                             Column(modifier = Modifier.fillMaxWidth()) {
-                                Text(text = "Email for projects", color = Color.Black)
+                                Text(text = "Email Reply for Green projects", color = Color.Black)
+                                Spacer(modifier = Modifier.height(10.dp))
+                                Text(text = "Today -10pm", color = Color.Black)
+
+
+
+
                             }
 
 
