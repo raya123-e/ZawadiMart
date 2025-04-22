@@ -262,8 +262,7 @@ fun ServiceScreen(navController: NavController){
                         Spacer(modifier = Modifier.height(20.dp))
 
                         Text(
-                            text = "Levi commands attention with stoic precision — humanity’s strongest soldier, his sharp gaze and flawless form embody elite strength, discipline, and the ultimate standard in unstoppable cool.\n" +
-                                    "\n",
+                            text = "Levi commands attention with stoic precision — humanity’s strongest soldier, his sharp gaze and flawless form embody elite strength, discipline, and the ultimate standard in unstoppable cool." ,
                             fontSize = 10.sp,
 
                             )
@@ -273,7 +272,7 @@ fun ServiceScreen(navController: NavController){
                         Button(
                             onClick = {
                                 val callIntent= Intent(Intent.ACTION_DIAL)
-                                callIntent.data="tel:0720245837".toUri()
+                                callIntent.data="tel:0117434950".toUri()
                                 mContext.startActivity(callIntent)
                             },
                             colors = ButtonDefaults.buttonColors(Igris),
@@ -293,7 +292,8 @@ fun ServiceScreen(navController: NavController){
 
 
                 //Row-2
-                Row(modifier = Modifier
+                Row(
+                    modifier = Modifier
                     .padding(start = 20.dp, end = 20.dp)
 
                 ) {
@@ -325,7 +325,7 @@ fun ServiceScreen(navController: NavController){
                         Button(
                             onClick = {
                                 val callIntent= Intent(Intent.ACTION_DIAL)
-                                callIntent.data="tel:0720245837".toUri()
+                                callIntent.data="tel:0117434950".toUri()
                                 mContext.startActivity(callIntent)
                             },
                             colors = ButtonDefaults.buttonColors(Igris),

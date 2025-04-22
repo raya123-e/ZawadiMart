@@ -18,8 +18,10 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.draw.paint
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontFamily
@@ -30,6 +32,7 @@ import androidx.navigation.NavController
 import com.alian.zawadimart.R
 import com.alian.zawadimart.model.User
 import com.alian.zawadimart.navigation.ROUT_LOGIN
+import com.alian.zawadimart.ui.theme.Igris
 import com.alian.zawadimart.viewmodel.AuthViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -55,6 +58,8 @@ fun RegisterScreen(
     Column(
         modifier = Modifier
             .fillMaxSize()
+            .paint(painter = painterResource(R.drawable.img_35), contentScale = ContentScale.FillBounds)
+
             .padding(16.dp),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
@@ -74,8 +79,8 @@ fun RegisterScreen(
         OutlinedTextField(
             value = username,
             onValueChange = { username = it },
-            label = { Text("Username") },
-            leadingIcon = { Icon(Icons.Filled.Person, contentDescription = "Username Icon") },
+            label = { Text("Username", color = Color.Black) },
+            leadingIcon = { Icon(Icons.Filled.Person, contentDescription = "Username Icon" , tint = Color.Black) },
             modifier = Modifier.fillMaxWidth()
         )
         //End of username
@@ -89,7 +94,7 @@ fun RegisterScreen(
             value = email,
             onValueChange = { email = it },
             label = { Text("Email") },
-            leadingIcon = { Icon(Icons.Filled.Email, contentDescription = "Email Icon") },
+            leadingIcon = { Icon(Icons.Filled.Email, contentDescription = "Email Icon",tint = Color.Black) },
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email),
             modifier = Modifier.fillMaxWidth()
         )
@@ -111,9 +116,18 @@ fun RegisterScreen(
                 value = role,
                 onValueChange = {},
                 readOnly = true,
-                label = { Text("Select Role") },
+                label = { Text("Select Role", color = Color.Black) },
                 trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = expanded) },
-                modifier = Modifier.menuAnchor().fillMaxWidth()
+                colors = OutlinedTextFieldDefaults.colors(
+                    unfocusedBorderColor = Color.Black,
+                    focusedBorderColor = Color.Cyan,
+                    focusedTextColor = Color.Cyan,
+
+
+                ),
+                modifier = Modifier.menuAnchor().fillMaxWidth(),
+
+
             )
             ExposedDropdownMenu(
                 expanded = expanded,
@@ -143,13 +157,20 @@ fun RegisterScreen(
             onValueChange = { password = it },
             label = { Text("Password") },
             visualTransformation = if (passwordVisible) VisualTransformation.None else PasswordVisualTransformation(),
-            leadingIcon = { Icon(Icons.Filled.Lock, contentDescription = "Password Icon") },
+            leadingIcon = { Icon(Icons.Filled.Lock, contentDescription = "Password Icon",tint = Color.Black) },
             trailingIcon = {
                 val image = if (passwordVisible) painterResource(R.drawable.visibility)  else painterResource(R.drawable.visibilityoff)
                 IconButton(onClick = { passwordVisible = !passwordVisible }) {
-                    Icon(image, contentDescription = if (passwordVisible) "Hide Password" else "Show Password")
+                    Icon(image, contentDescription = if (passwordVisible) "Hide Password" else "Show Password",tint = Color.Black)
                 }
             },
+            colors = OutlinedTextFieldDefaults.colors(
+                unfocusedBorderColor = Color.Black,
+                focusedBorderColor = Color.Cyan,
+                focusedTextColor = Color.Cyan,
+
+
+                ),
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
             modifier = Modifier.fillMaxWidth()
         )
@@ -162,13 +183,20 @@ fun RegisterScreen(
             onValueChange = { confirmPassword = it },
             label = { Text("Confirm Password") },
             visualTransformation = if (confirmPasswordVisible) VisualTransformation.None else PasswordVisualTransformation(),
-            leadingIcon = { Icon(Icons.Filled.Lock, contentDescription = "Confirm Password Icon") },
+            leadingIcon = { Icon(Icons.Filled.Lock, contentDescription = "Confirm Password Icon",tint = Color.Black) },
             trailingIcon = {
                 val image = if (confirmPasswordVisible) painterResource(R.drawable.visibility)  else painterResource(R.drawable.visibilityoff)
                 IconButton(onClick = { confirmPasswordVisible = !confirmPasswordVisible }) {
-                    Icon(image, contentDescription = if (confirmPasswordVisible) "Hide Password" else "Show Password")
+                    Icon(image, contentDescription = if (confirmPasswordVisible) "Hide Password" else "Show Password",tint = Color.Black)
                 }
             },
+            colors = OutlinedTextFieldDefaults.colors(
+                unfocusedBorderColor = Color.Black,
+                focusedBorderColor = Color.Cyan,
+                focusedTextColor = Color.Cyan,
+
+
+                ),
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
             modifier = Modifier.fillMaxWidth()
         )

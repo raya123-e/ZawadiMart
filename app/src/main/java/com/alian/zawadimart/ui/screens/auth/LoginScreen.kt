@@ -16,12 +16,15 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.paint
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.input.*
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
@@ -60,12 +63,18 @@ fun LoginScreen(
     }
 //End of login logic
 
+
+
     Column(
         modifier = Modifier
+            .paint(painter = painterResource(R.drawable.img_33), contentScale = ContentScale.FillBounds)
+
             .fillMaxSize()
             .padding(20.dp),
         verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
+        horizontalAlignment = Alignment.CenterHorizontally,
+
+
     ) {
         // Animated Welcome Text
         AnimatedVisibility(
@@ -86,7 +95,7 @@ fun LoginScreen(
         OutlinedTextField(
             value = email,
             onValueChange = { email = it },
-            label = { Text("Email") },
+            label = { Text("Email", color = Color.Black) },
             leadingIcon = { Icon(Icons.Filled.Email, contentDescription = "Email Icon") },
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email),
             modifier = Modifier.fillMaxWidth(),
@@ -99,7 +108,7 @@ fun LoginScreen(
         OutlinedTextField(
             value = password,
             onValueChange = { password = it },
-            label = { Text("Password") },
+            label = { Text("Password", color = Color.Black) },
             leadingIcon = { Icon(Icons.Filled.Lock, contentDescription = "Password Icon") },
             visualTransformation = if (passwordVisible) VisualTransformation.None else PasswordVisualTransformation(),
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
@@ -148,7 +157,7 @@ fun LoginScreen(
 
         // Register Navigation Button
         TextButton(onClick = { navController.navigate(ROUT_REGISTER) }) {
-            Text("Don't have an account? Register")
+            Text("Don't have an account? Register", color = Color.Black)
         }
     }
 }

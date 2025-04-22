@@ -126,7 +126,7 @@ fun DashboardScreen(navController: NavController){
         // End of Box
 
 
-        Spacer(modifier = Modifier.height(100.dp))
+        Spacer(modifier = Modifier.height(120.dp))
 
         //Row-1
         Row (
