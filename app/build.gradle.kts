@@ -47,6 +47,13 @@ dependencies {
     kapt ("androidx.room:room-compiler:2.6.1")
     implementation ("androidx.room:room-ktx:2.6.1")
 
+    // Image Loading (Coil for Jetpack Compose)
+    implementation(libs.coil.compose)
+
+    //Livedata
+    implementation("androidx.compose.runtime:runtime-livedata:1.6.4")
+
+
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)

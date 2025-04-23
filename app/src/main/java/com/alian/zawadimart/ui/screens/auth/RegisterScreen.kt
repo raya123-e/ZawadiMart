@@ -25,6 +25,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.*
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -81,6 +82,17 @@ fun RegisterScreen(
             onValueChange = { username = it },
             label = { Text("Username", color = Color.Black) },
             leadingIcon = { Icon(Icons.Filled.Person, contentDescription = "Username Icon" , tint = Color.Black) },
+
+
+        colors = OutlinedTextFieldDefaults.colors(
+            unfocusedBorderColor = Color.Black,
+            focusedBorderColor = Color.Cyan,
+            focusedTextColor = Color.Cyan,
+            cursorColor = Color.White,
+
+
+
+            ),
             modifier = Modifier.fillMaxWidth()
         )
         //End of username
@@ -93,9 +105,19 @@ fun RegisterScreen(
         OutlinedTextField(
             value = email,
             onValueChange = { email = it },
-            label = { Text("Email") },
+            label = { Text("Email", color = Color.Black) },
             leadingIcon = { Icon(Icons.Filled.Email, contentDescription = "Email Icon",tint = Color.Black) },
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email),
+            colors = OutlinedTextFieldDefaults.colors(
+                unfocusedBorderColor = Color.Black,
+                focusedBorderColor = Color.Cyan,
+                focusedTextColor = Color.Cyan,
+                cursorColor = Color.White,
+
+
+
+                ),
+
             modifier = Modifier.fillMaxWidth()
         )
         //End of email
@@ -104,8 +126,8 @@ fun RegisterScreen(
 
 
         //Role
-        var role by remember { mutableStateOf("user") }
-        val roleOptions = listOf("user", "admin")
+        var role by remember { mutableStateOf("User") }
+        val roleOptions = listOf("user", "Admin")
         var expanded by remember { mutableStateOf(false) }
 
         ExposedDropdownMenuBox(
@@ -155,11 +177,13 @@ fun RegisterScreen(
         OutlinedTextField(
             value = password,
             onValueChange = { password = it },
-            label = { Text("Password") },
+            label = { Text("Password", color = Color.Black) },
             visualTransformation = if (passwordVisible) VisualTransformation.None else PasswordVisualTransformation(),
             leadingIcon = { Icon(Icons.Filled.Lock, contentDescription = "Password Icon",tint = Color.Black) },
             trailingIcon = {
-                val image = if (passwordVisible) painterResource(R.drawable.visibility)  else painterResource(R.drawable.visibilityoff)
+                val image = if (passwordVisible) painterResource(R.drawable.visibility)  else painterResource(
+                    R.drawable.visibilityoff
+                )
                 IconButton(onClick = { passwordVisible = !passwordVisible }) {
                     Icon(image, contentDescription = if (passwordVisible) "Hide Password" else "Show Password",tint = Color.Black)
                 }
@@ -181,7 +205,7 @@ fun RegisterScreen(
         OutlinedTextField(
             value = confirmPassword,
             onValueChange = { confirmPassword = it },
-            label = { Text("Confirm Password") },
+            label = { Text("Confirm Password", color =Color.Black ) },
             visualTransformation = if (confirmPasswordVisible) VisualTransformation.None else PasswordVisualTransformation(),
             leadingIcon = { Icon(Icons.Filled.Lock, contentDescription = "Confirm Password Icon",tint = Color.Black) },
             trailingIcon = {
@@ -238,7 +262,7 @@ fun RegisterScreen(
         TextButton(
             onClick = { navController.navigate(ROUT_LOGIN) }
         ) {
-            Text("Already have an account? Login")
+            Text("Already have an account? Login", color =Color.Black )
         }
     }
 }
